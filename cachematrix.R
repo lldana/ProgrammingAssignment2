@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## 2 functions to calcualte a transpose function of a matrix
+## 2 functions to calcualte the inverse of a matrix
 
 ## Write a short comment describing this function
 ## this function allows to create and retrieve for future use a value
@@ -12,27 +12,26 @@ makeCacheMatrix <- function(x = matrix()) {
     tr <<- NULL
   }
   get <- function() x
-  settranspose <- function(transpose) tr <<- transpose
-  gettranspose <- function() tr
+  setinverse <- function(inverse) tr <<- inverse
+  getinverse <- function() tr
   list(set = set, get = get,
-       settranspose = settranspose,
-       gettranspose = gettranspose)
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
 ## Write a short comment describing this function
-#transpose a matrix using cache if available, otherwise it calculates the transpose
+#inverse a matrix using cache if available, otherwise calculate the inverse
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  tr <- x$gettranspose()
+  ## Return a matrix that is the inverse of 'x'
+  tr <- x$getinverse()
   if(!is.null(tr)) {
     message("getting cached data")
     return(tr)
   }
   data <- x$get()
   tr <- solve(data, ...)
-  x$settranspose(tr)
+  x$setinverse(tr)
   tr
 }
-
