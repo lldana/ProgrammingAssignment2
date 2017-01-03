@@ -36,7 +36,4 @@ cacheSolve <- function(x, ...) {
   tr
 }
 
-test <- matrix(1:20,20,2)
-test
-makeCacheMatrix(test)
-cacheSolve(test)
+
