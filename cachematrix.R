@@ -31,9 +31,8 @@ cacheSolve <- function(x, ...) {
     return(tr)
   }
   data <- x$get()
-  tr <- t(data, ...)
+  tr <- solve(data, ...)
   x$settranspose(tr)
   tr
 }
-
 
